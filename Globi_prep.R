@@ -29,6 +29,14 @@ df$target_binomial <- df$target_taxon_name
 df <- df %>% separate(col=source_taxon_name, into = c("S_Genus", "S_Species"),sep=" ") %>%
   separate(col=target_taxon_name, into = c("T_Genus", "T_Species"),sep = " ")
 
+# Change names to factors ####
+df$source_binomial <- as.factor(df$source_binomial)
+df$target_binomial <- as.factor(df$target_binomial)
+df$S_Genus <- as.factor(df$S_Genus)
+df$S_Species <- as.factor(df$S_Species)
+df$T_Genus <- as.factor(df$T_Genus)
+df$T_Species <- as.factor(df$T_Species)
+
 # Create subset with only expert-quality data (quality 4 and 5) ####
 expert <- df %>% filter(data_quality %in% c(4,5))
 summary(expert$data_quality)
