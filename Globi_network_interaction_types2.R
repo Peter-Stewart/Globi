@@ -93,6 +93,15 @@ Parasitism <- data_edge %>% filter(interaction_type=="Parasitism")
 Pathogens <- data_edge %>% filter(interaction_type=="Pathogens")
 Other_mutualism <- data_edge %>% filter(interaction_type=="Other_mutualism")
 
+# Drop unused factor levels for each
+Pollination_and_visitation <- droplevels(Pollination_and_visitation)
+Undefined <- droplevels(Undefined)
+Trophic <- droplevels(Trophic)
+Adjacency <- droplevels(Adjacency)
+Dispersal <- droplevels(Dispersal)
+Parasitism <- droplevels(Parasitism)
+Pathogens <- droplevels(Pathogens)
+Other_mutualism <- droplevels(Other_mutualism)
 
 # Create networks
 Pollination_and_visitation_net <- network(Pollination_and_visitation[, 1:2 ], directed = TRUE)
